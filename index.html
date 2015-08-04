@@ -110,7 +110,34 @@
   
   <div class="entry">
     
-      
+      <p><em>hello</em><br><strong>helloworld</strong><br><a href="https://www.baidu.com" target="_blank" rel="external">baidu</a><br><img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_81d09391.png" alt="baidupic"></p>
+<h1 id="title_one">title one </h1><h2 id="title_two">title two</h2><h1 id="title_three">title three</h1><h4 id="title_four">title four</h4><blockquote>
+<h1 id="this_is_quote_word">this is quote word</h1><p>hello</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">item</th>
+<th style="text-align:center">value</th>
+<th style="text-align:center">qty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">com</td>
+<td style="text-align:center">1600</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td style="text-align:center">food</td>
+<td style="text-align:center">200</td>
+<td style="text-align:center">9</td>
+</tr>
+</tbody>
+</table>
+<p>hello<code>var a = 1</code>world</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">createBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">let</span> okBtn = <span class="type">UIButton</span>.<span class="keyword">new</span>()</span><br><span class="line">    <span class="keyword">self</span>.addSubview(okBtn)</span><br><span class="line">    okBtn.backgroundColor = <span class="type">UIColor</span>.orangeColor()</span><br><span class="line">    okBtn.setTitle(<span class="string">"确定"</span>, forState: <span class="type">UIControlState</span>.<span class="type">Normal</span>)</span><br><span class="line">    okBtn.addTarget(<span class="keyword">self</span>, action:<span class="string">"okBtnClick:"</span> , forControlEvents: <span class="type">UIControlEvents</span>.<span class="type">TouchUpInside</span>)</span><br><span class="line">    okBtn.snp_makeConstraints &#123; (make) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">        make.size.equalTo(<span class="type">CGSizeMake</span>(<span class="keyword">self</span>.frame.width/<span class="number">2</span>, <span class="number">50</span>));</span><br><span class="line">        make.<span class="keyword">right</span>.equalTo(<span class="keyword">self</span>)</span><br><span class="line">        make.bottom.equalTo(<span class="keyword">self</span>.pickerView!.snp_top).offset(<span class="number">50</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> cancelBtn = <span class="type">UIButton</span>.<span class="keyword">new</span>()</span><br><span class="line">    <span class="keyword">self</span>.addSubview(cancelBtn)</span><br><span class="line">    cancelBtn.backgroundColor = <span class="type">UIColor</span>.orangeColor()</span><br><span class="line">    cancelBtn.setTitle(<span class="string">"取消"</span>, forState: <span class="type">UIControlState</span>.<span class="type">Normal</span>)</span><br><span class="line">    cancelBtn.addTarget(<span class="keyword">self</span>, action:<span class="string">"bgBtnClick:"</span>, forControlEvents: <span class="type">UIControlEvents</span>.<span class="type">TouchUpInside</span>)</span><br><span class="line">    cancelBtn.snp_makeConstraints &#123; (make) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">        make.size.equalTo(<span class="type">CGSizeMake</span>(<span class="keyword">self</span>.frame.width/<span class="number">2</span>, <span class="number">50</span>));</span><br><span class="line">        make.<span class="keyword">left</span>.equalTo(<span class="keyword">self</span>)</span><br><span class="line">        make.bottom.equalTo(<span class="keyword">self</span>.pickerView!.snp_top).offset(<span class="number">50</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     
   </div>
   <footer class="end-sep">
