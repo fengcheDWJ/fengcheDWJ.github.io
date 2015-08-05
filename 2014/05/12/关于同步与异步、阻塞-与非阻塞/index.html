@@ -3,36 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>工程的思考 | fengche</title>
+  <title>关于同步与异步、阻塞 与非阻塞 | fengche</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础类 工具类 重用
-宏 (通用宏例如系统版本,网络宏例如网址,通知宏,第三方key等等)   
-MVVM的分层
-注释
-文件夹分类（包括代码,资源的归类）
-第三方库的管理(CocoaPods)
-类的命名 继承 与 重用">
+  <meta name="description" content="以下是我个人的一些小见解，不对之处，还望指正。
+同步：自己拿消息异步：别人通知
+阻塞：不做其他事情
+非阻塞：做其他事情
+例子：同步阻塞：主线程调用一个函数写一个文件，等待结果返回。
+同步非阻塞：主线程调用一个函数写一个文件，不等待结果返回。之后做其他事情，过一段时间轮询一次文件写完没，写完的话就执行相应代码。
+异步阻塞：主线程开一个子线程，子线程调用一个函数写一个文件。主线程等文件写入的时候啥都不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="工程的思考">
-<meta property="og:url" content="https://fengcheDWJ.github.io/2015/08/05/工程的思考/index.html">
+<meta property="og:title" content="关于同步与异步、阻塞 与非阻塞">
+<meta property="og:url" content="https://fengcheDWJ.github.io/2014/05/12/关于同步与异步、阻塞-与非阻塞/index.html">
 <meta property="og:site_name" content="fengche">
-<meta property="og:description" content="基础类 工具类 重用
-宏 (通用宏例如系统版本,网络宏例如网址,通知宏,第三方key等等)   
-MVVM的分层
-注释
-文件夹分类（包括代码,资源的归类）
-第三方库的管理(CocoaPods)
-类的命名 继承 与 重用">
-<meta property="og:updated_time" content="2015-08-05T07:15:00.000Z">
+<meta property="og:description" content="以下是我个人的一些小见解，不对之处，还望指正。
+同步：自己拿消息异步：别人通知
+阻塞：不做其他事情
+非阻塞：做其他事情
+例子：同步阻塞：主线程调用一个函数写一个文件，等待结果返回。
+同步非阻塞：主线程调用一个函数写一个文件，不等待结果返回。之后做其他事情，过一段时间轮询一次文件写完没，写完的话就执行相应代码。
+异步阻塞：主线程开一个子线程，子线程调用一个函数写一个文件。主线程等文件写入的时候啥都不">
+<meta property="og:updated_time" content="2015-08-05T08:09:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工程的思考">
-<meta name="twitter:description" content="基础类 工具类 重用
-宏 (通用宏例如系统版本,网络宏例如网址,通知宏,第三方key等等)   
-MVVM的分层
-注释
-文件夹分类（包括代码,资源的归类）
-第三方库的管理(CocoaPods)
-类的命名 继承 与 重用">
+<meta name="twitter:title" content="关于同步与异步、阻塞 与非阻塞">
+<meta name="twitter:description" content="以下是我个人的一些小见解，不对之处，还望指正。
+同步：自己拿消息异步：别人通知
+阻塞：不做其他事情
+非阻塞：做其他事情
+例子：同步阻塞：主线程调用一个函数写一个文件，等待结果返回。
+同步非阻塞：主线程调用一个函数写一个文件，不等待结果返回。之后做其他事情，过一段时间轮询一次文件写完没，写完的话就执行相应代码。
+异步阻塞：主线程开一个子线程，子线程调用一个函数写一个文件。主线程等文件写入的时候啥都不">
   
   
     <link rel="icon" href="/favicon.png">
@@ -131,11 +131,11 @@ MVVM的分层
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-工程的思考" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-关于同步与异步、阻塞-与非阻塞" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/05/工程的思考/" class="article-date">
-  	<time datetime="2015-08-05T01:50:31.000Z" itemprop="datePublished">2015-08-05</time>
+      <a href="/2014/05/12/关于同步与异步、阻塞-与非阻塞/" class="article-date">
+  	<time datetime="2014-05-12T08:08:09.000Z" itemprop="datePublished">2014-05-12</time>
 </a>
     </div>
   
@@ -148,7 +148,7 @@ MVVM的分层
         
   
     <h1 class="article-title" itemprop="name">
-      工程的思考
+      关于同步与异步、阻塞 与非阻塞
     </h1>
   
 
@@ -157,12 +157,12 @@ MVVM的分层
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工程/">工程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基础/">基础</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	<a class="article-category-link" href="/categories/基础/">基础</a>
 	</div>
 
 
@@ -172,15 +172,14 @@ MVVM的分层
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>基础类 工具类 重用</li>
-<li>宏 (通用宏例如系统版本,网络宏例如网址,通知宏,第三方key等等)   </li>
-<li>MVVM的分层</li>
-<li>注释</li>
-<li>文件夹分类（包括代码,资源的归类）</li>
-<li>第三方库的管理(CocoaPods)</li>
-<li>类的命名 继承 与 重用</li>
-</ol>
+        <p>以下是我个人的一些小见解，不对之处，还望指正。</p>
+<p><strong>同步</strong>：自己拿消息<br><strong>异步</strong>：别人通知</p>
+<p><strong>阻塞</strong>：不做其他事情</p>
+<p><strong>非阻塞</strong>：做其他事情</p>
+<h6 id="例子：">例子：</h6><p><strong>同步阻塞</strong>：主线程调用一个函数写一个文件，等待结果返回。</p>
+<p><strong>同步非阻塞</strong>：主线程调用一个函数写一个文件，不等待结果返回。之后做其他事情，过一段时间轮询一次文件写完没，写完的话就执行相应代码。</p>
+<p><strong>异步阻塞</strong>：主线程开一个子线程，子线程调用一个函数写一个文件。主线程等文件写入的时候啥都不干，等子线程写完了通知主线程，主线程在往下执行。</p>
+<p><strong>异步非阻塞</strong>：主线程开一个子线程，子线程调用一个函数写一个文件。主线程等文件写入的时候继续往下执行。子线程写完后在通知主线程，然后主线程在执行相应代码。</p>
 
       
     </div>
@@ -190,18 +189,18 @@ MVVM的分层
     
 <nav id="article-nav">
   
-    <a href="/2015/08/05/优先级翻转/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/09/12/Java子类方法不能抛更多异常/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          优先级翻转
+          Java子类方法不能抛更多异常
         
       </div>
     </a>
   
   
-    <a href="/2014/09/12/Java子类方法不能抛更多异常/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java子类方法不能抛更多异常</div>
+    <a href="/2014/04/03/关于函数传递参数/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于函数传递参数</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
