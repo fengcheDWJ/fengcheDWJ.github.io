@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>强转基本数据类型 | fengche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="fengche">
+  
+  
+    <meta name="description" content="12345678910111213union A&amp;#123;        int a;        char b[4];    &amp;#125;a;    a.a=1;    if (a.b[0] == 0)    &amp;#123;        //大端        NSLog(@&quot;big&quot;);    &amp;#125; else &amp;#123;        //小端        NSLog(@&quot;li">
+  
+  <meta name="description" content="12345678910111213union A&amp;#123;        int a;        char b[4];    &amp;#125;a;    a.a=1;    if (a.b[0] == 0)    &amp;#123;        //大端        NSLog(@&quot;big&quot;);    &amp;#125; else &amp;#123;        //小端        NSLog(@&quot;li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强转基本数据类型">
+<meta property="og:url" content="https://fengcheDWJ.github.io/2015/08/05/强转基本数据类型/index.html">
+<meta property="og:site_name" content="fengche">
+<meta property="og:description" content="12345678910111213union A&amp;#123;        int a;        char b[4];    &amp;#125;a;    a.a=1;    if (a.b[0] == 0)    &amp;#123;        //大端        NSLog(@&quot;big&quot;);    &amp;#125; else &amp;#123;        //小端        NSLog(@&quot;li">
+<meta property="og:updated_time" content="2015-08-05T06:31:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强转基本数据类型">
+<meta name="twitter:description" content="12345678910111213union A&amp;#123;        int a;        char b[4];    &amp;#125;a;    a.a=1;    if (a.b[0] == 0)    &amp;#123;        //大端        NSLog(@&quot;big&quot;);    &amp;#125; else &amp;#123;        //小端        NSLog(@&quot;li">
+  
+    <link rel="alternate" href="/atom.xml" title="fengche" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">fengche</a></h1>
+    <p><a href="/">ios swift c cpp java node js</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/强转基本数据类型/">
+  <time datetime="2015-08-05T02:09:33.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">强转基本数据类型</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> A&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        <span class="keyword">char</span> b[<span class="number">4</span>];</span><br><span class="line">    &#125;a;</span><br><span class="line">    a<span class="variable">.a</span>=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (a<span class="variable">.b</span>[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//大端</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"big"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//小端</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"little"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>result</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">11</span>:<span class="number">53</span>:<span class="number">40.497</span> UITest[<span class="number">1856</span>:<span class="number">82057</span>] little</span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong> ios是小端模式(低地址放低位)</p>
+<hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> l = <span class="number">0x1234567887654321</span>;</span><br><span class="line">   <span class="keyword">int</span> i = l &gt;&gt;<span class="number">32</span> &amp; <span class="number">0xffffffff</span>;</span><br><span class="line">   <span class="keyword">int</span> j = (<span class="keyword">int</span>)l;</span><br><span class="line">   int16_t t = (int16_t)l;</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"l = %llx i = %x j = %x t = %x"</span> , l ,i ,j , t);</span><br></pre></td></tr></table></figure>
+<p><strong>reslut</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">11</span>:<span class="number">46</span>:<span class="number">35.040</span> UITest[<span class="number">1786</span>:<span class="number">78739</span>] l = <span class="number">1234567887654321</span> i = <span class="number">12345678</span> j = <span class="number">87654321</span> t = <span class="number">4321</span></span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>  强转是截取低位的</p>
+
+    
+  </div>
+  <footer>
+    
+      
+  <div class="categories">
+    <a class="categories-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/iOS-基础/">iOS 基础</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">fengche</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

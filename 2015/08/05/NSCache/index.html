@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>NSCache | fengche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="fengche">
+  
+  
+    <meta name="description" content="iOS 4 中 Apple 添加的 NSCache 使用一个可变的字典来存储不可变数据，它不仅会对访问加锁，更甚至在低内存情况下会清空自己的内容。像SDWebImage这种第三方库就用了这个来把图片缓存在内存里面。123_memCache = [[NSCache alloc] init];[self.memCache setObject:image forKey:key cost:image.si">
+  
+  <meta name="description" content="iOS 4 中 Apple 添加的 NSCache 使用一个可变的字典来存储不可变数据，它不仅会对访问加锁，更甚至在低内存情况下会清空自己的内容。像SDWebImage这种第三方库就用了这个来把图片缓存在内存里面。123_memCache = [[NSCache alloc] init];[self.memCache setObject:image forKey:key cost:image.si">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NSCache">
+<meta property="og:url" content="https://fengcheDWJ.github.io/2015/08/05/NSCache/index.html">
+<meta property="og:site_name" content="fengche">
+<meta property="og:description" content="iOS 4 中 Apple 添加的 NSCache 使用一个可变的字典来存储不可变数据，它不仅会对访问加锁，更甚至在低内存情况下会清空自己的内容。像SDWebImage这种第三方库就用了这个来把图片缓存在内存里面。123_memCache = [[NSCache alloc] init];[self.memCache setObject:image forKey:key cost:image.si">
+<meta property="og:updated_time" content="2015-08-05T06:31:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NSCache">
+<meta name="twitter:description" content="iOS 4 中 Apple 添加的 NSCache 使用一个可变的字典来存储不可变数据，它不仅会对访问加锁，更甚至在低内存情况下会清空自己的内容。像SDWebImage这种第三方库就用了这个来把图片缓存在内存里面。123_memCache = [[NSCache alloc] init];[self.memCache setObject:image forKey:key cost:image.si">
+  
+    <link rel="alternate" href="/atom.xml" title="fengche" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">fengche</a></h1>
+    <p><a href="/">ios swift c cpp java node js</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/NSCache/">
+  <time datetime="2015-08-05T02:08:25.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">NSCache</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>iOS 4 中 Apple 添加的 NSCache 使用一个可变的字典来存储不可变数据，它不仅会对访问加锁，更甚至在低内存情况下会清空自己的内容。像SDWebImage这种第三方库就用了这个来把图片缓存在内存里面。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_memCache = [[<span class="built_in">NSCache</span> alloc] init];</span><br><span class="line"></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.memCache</span> setObject:image forKey:key cost:image<span class="variable">.size</span><span class="variable">.height</span> * image<span class="variable">.size</span><span class="variable">.width</span> * image<span class="variable">.scale</span> * image<span class="variable">.scale</span>];</span><br></pre></td></tr></table></figure></p>
+
+    
+  </div>
+  <footer>
+    
+      
+  <div class="categories">
+    <a class="categories-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/iOS-内存/">iOS 内存</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">fengche</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

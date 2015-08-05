@@ -35,7 +35,7 @@
     <header id="header">
   <div class="title">
     <h1><a href="/">fengche</a></h1>
-    <p><a href="/">fengche is a good guy.</a></p>
+    <p><a href="/">ios swift c cpp java node js</a></p>
   </div>
   <nav class="nav">
     <ul>
@@ -62,22 +62,22 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2015/08/04/您好-世界/">
-  <time datetime="2015-08-04T01:16:22.000Z">
-    2015-08-04
+      <a href="/2015/08/05/循环引用/">
+  <time datetime="2015-08-05T06:08:08.000Z">
+    2015-08-05
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2015/08/04/您好-世界/">您好 世界</a></h1>
+    <h1 class="title"><a href="/2015/08/05/循环引用/">循环引用</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      
+      <h1 id="留着待写">留着待写</h1>
     
   </div>
   <footer class="end-sep">
@@ -95,48 +95,312 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2015/08/03/helloworld/">
-  <time datetime="2015-08-03T10:15:26.000Z">
-    2015-08-03
+      <a href="/2015/08/05/响应链/">
+  <time datetime="2015-08-05T06:07:01.000Z">
+    2015-08-05
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2015/08/03/helloworld/">大家好，我是风车。</a></h1>
+    <h1 class="title"><a href="/2015/08/05/响应链/">响应链</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p><em>hello</em><br><strong>helloworld</strong><br><a href="https://www.baidu.com" target="_blank" rel="external">baidu</a><br><img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/logo_white_81d09391.png" alt="baidupic"></p>
-<h1 id="title_one">title one </h1><h2 id="title_two">title two</h2><h1 id="title_three">title three</h1><h4 id="title_four">title four</h4><blockquote>
-<h1 id="this_is_quote_word">this is quote word</h1><p>hello</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">item</th>
-<th style="text-align:center">value</th>
-<th style="text-align:center">qty</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">com</td>
-<td style="text-align:center">1600</td>
-<td style="text-align:center">5</td>
-</tr>
-<tr>
-<td style="text-align:center">food</td>
-<td style="text-align:center">200</td>
-<td style="text-align:center">9</td>
-</tr>
-</tbody>
-</table>
-<p>hello<code>var a = 1</code>world</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="func"><span class="keyword">func</span> <span class="title">createBtn</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">let</span> okBtn = <span class="type">UIButton</span>.<span class="keyword">new</span>()</span><br><span class="line">    <span class="keyword">self</span>.addSubview(okBtn)</span><br><span class="line">    okBtn.backgroundColor = <span class="type">UIColor</span>.orangeColor()</span><br><span class="line">    okBtn.setTitle(<span class="string">"确定"</span>, forState: <span class="type">UIControlState</span>.<span class="type">Normal</span>)</span><br><span class="line">    okBtn.addTarget(<span class="keyword">self</span>, action:<span class="string">"okBtnClick:"</span> , forControlEvents: <span class="type">UIControlEvents</span>.<span class="type">TouchUpInside</span>)</span><br><span class="line">    okBtn.snp_makeConstraints &#123; (make) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">        make.size.equalTo(<span class="type">CGSizeMake</span>(<span class="keyword">self</span>.frame.width/<span class="number">2</span>, <span class="number">50</span>));</span><br><span class="line">        make.<span class="keyword">right</span>.equalTo(<span class="keyword">self</span>)</span><br><span class="line">        make.bottom.equalTo(<span class="keyword">self</span>.pickerView!.snp_top).offset(<span class="number">50</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> cancelBtn = <span class="type">UIButton</span>.<span class="keyword">new</span>()</span><br><span class="line">    <span class="keyword">self</span>.addSubview(cancelBtn)</span><br><span class="line">    cancelBtn.backgroundColor = <span class="type">UIColor</span>.orangeColor()</span><br><span class="line">    cancelBtn.setTitle(<span class="string">"取消"</span>, forState: <span class="type">UIControlState</span>.<span class="type">Normal</span>)</span><br><span class="line">    cancelBtn.addTarget(<span class="keyword">self</span>, action:<span class="string">"bgBtnClick:"</span>, forControlEvents: <span class="type">UIControlEvents</span>.<span class="type">TouchUpInside</span>)</span><br><span class="line">    cancelBtn.snp_makeConstraints &#123; (make) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">        make.size.equalTo(<span class="type">CGSizeMake</span>(<span class="keyword">self</span>.frame.width/<span class="number">2</span>, <span class="number">50</span>));</span><br><span class="line">        make.<span class="keyword">left</span>.equalTo(<span class="keyword">self</span>)</span><br><span class="line">        make.bottom.equalTo(<span class="keyword">self</span>.pickerView!.snp_top).offset(<span class="number">50</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <h1 id="留着待写">留着待写</h1>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/drawRect/">
+  <time datetime="2015-08-05T02:10:15.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/drawRect/">drawRect</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><code>setNeedsDisplay</code> 在没有加入到视图树里面时不调用<code>drawRect</code>（包括<code>addSubView</code>之后马上<code>removeFromSuperView</code>这种也不会调用）。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/static的赋值/">
+  <time datetime="2015-08-05T02:09:47.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/static的赋值/">static的赋值</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSObject</span> *obj = [<span class="built_in">NSObject</span> new];</span><br></pre></td></tr></table></figure>
+<p>在.m文件，static是编译期的东西，不能在这时候做运行时的操作(例如new),因此这样写会报错。而常量就没问题。而mm文件里面是可以这样写的，因为mm文件是混编oc跟cpp的（cpp也是可以这样写的），所以如果在全局的时候会比main还早执行，如果是在函数里面的话则是要执行到这个函数才能执行。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/强转基本数据类型/">
+  <time datetime="2015-08-05T02:09:33.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/强转基本数据类型/">强转基本数据类型</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">union</span> A&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">        <span class="keyword">char</span> b[<span class="number">4</span>];</span><br><span class="line">    &#125;a;</span><br><span class="line">    a<span class="variable">.a</span>=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (a<span class="variable">.b</span>[<span class="number">0</span>] == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//大端</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"big"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//小端</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"little"</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>result</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">11</span>:<span class="number">53</span>:<span class="number">40.497</span> UITest[<span class="number">1856</span>:<span class="number">82057</span>] little</span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong> ios是小端模式(低地址放低位)</p>
+<hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> l = <span class="number">0x1234567887654321</span>;</span><br><span class="line">   <span class="keyword">int</span> i = l &gt;&gt;<span class="number">32</span> &amp; <span class="number">0xffffffff</span>;</span><br><span class="line">   <span class="keyword">int</span> j = (<span class="keyword">int</span>)l;</span><br><span class="line">   int16_t t = (int16_t)l;</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"l = %llx i = %x j = %x t = %x"</span> , l ,i ,j , t);</span><br></pre></td></tr></table></figure>
+<p><strong>reslut</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">11</span>:<span class="number">46</span>:<span class="number">35.040</span> UITest[<span class="number">1786</span>:<span class="number">78739</span>] l = <span class="number">1234567887654321</span> i = <span class="number">12345678</span> j = <span class="number">87654321</span> t = <span class="number">4321</span></span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>  强转是截取低位的</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/autorelease/">
+  <time datetime="2015-08-05T02:08:39.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/autorelease/">autorelease</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">NSAutoreleasePool</span> *pool = [[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line"> </span><br><span class="line">[pool autorelease];</span><br></pre></td></tr></table></figure>
+<p><strong>result</strong></p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2015-08-05 11:37:41.127 MRCTest[1678:73431] <span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span> -[NSAutoreleasePool autorelease]: Cannot autorelease an autorelease pool'</span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong> autorelease 不能用在autoreleasepool。</p>
+<hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">NSAutoreleasePool</span> *pool = [[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line"> </span><br><span class="line">[pool drain];</span><br><span class="line">[pool release];</span><br></pre></td></tr></table></figure>
+<p><strong>result</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">11</span>:<span class="number">40</span>:<span class="number">28.085</span> MRCTest[<span class="number">1718</span>:<span class="number">75004</span>] *** -[NSAutoreleasePool release]: This pool has already been drained, <span class="function"><span class="keyword">do</span> not release <span class="title">it</span> <span class="params">(<span class="keyword">double</span> release)</span>.</span></span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>在每个thread中都会维持一个stack, 其中放置着所有在这个thread中创建但未销毁的pool, 每当一个新的pool创建后, 它就位于stack的最顶端,  相应autoreleased object就会放入其中. 当pool drain的时候, 它就会从stack的顶端移除, 并且release掉其包含的objects.By the way ,  NSAutoreleasePool是可以嵌套使用的，池是被嵌套的，嵌套的结果是个栈，同一线程只有当前栈顶pool实例是可用的。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/NSCache/">
+  <time datetime="2015-08-05T02:08:25.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/NSCache/">NSCache</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>iOS 4 中 Apple 添加的 NSCache 使用一个可变的字典来存储不可变数据，它不仅会对访问加锁，更甚至在低内存情况下会清空自己的内容。像SDWebImage这种第三方库就用了这个来把图片缓存在内存里面。<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_memCache = [[<span class="built_in">NSCache</span> alloc] init];</span><br><span class="line"></span><br><span class="line">[<span class="keyword">self</span><span class="variable">.memCache</span> setObject:image forKey:key cost:image<span class="variable">.size</span><span class="variable">.height</span> * image<span class="variable">.size</span><span class="variable">.width</span> * image<span class="variable">.scale</span> * image<span class="variable">.scale</span>];</span><br></pre></td></tr></table></figure></p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/理解scroll-view/">
+  <time datetime="2015-08-05T02:06:45.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/理解scroll-view/">理解scroll view</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><a href="http://objccn.io/issue-3-2/" target="_blank" rel="external">这里</a>讲的不错，就不复制黏贴了。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/NSOperatinQueue/">
+  <time datetime="2015-08-05T02:06:06.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/NSOperatinQueue/">NSOperationQueue</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSOperationQueue</span> mainQueue]<span class="variable">.maxConcurrentOperationCount</span> = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"max cocurrent count = %d"</span> , (<span class="keyword">int</span>)[<span class="built_in">NSOperationQueue</span> mainQueue]<span class="variable">.maxConcurrentOperationCount</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong><code>[NSOperationQueue mainQueue]</code>最大并发数为1 ，修改无效。顺便提一下，<code>[[NSOperation new] start]</code>方法会阻塞当前线程，要异步就要加入NSOperationQueue。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/sleep/">
+  <time datetime="2015-08-05T02:05:32.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2015/08/05/sleep/">sleep</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>两个函数都是休眠当前线程，GCD,NSThread，NSOperation都适用</p>
 
     
   </div>
@@ -154,6 +418,8 @@
 
   <nav id="pagination">
   
+  
+    <a href="/page/2/" class="next">下一页</a>
   
   <div class="clearfix"></div>
 </nav>

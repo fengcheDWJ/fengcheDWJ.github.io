@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>单一资源的多读单写 | fengche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="fengche">
+  
+  
+    <meta name="description" content="DISPATCH_QUEUE_SERIAL 可以用来做读写同步
+
+我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它">
+  
+  <meta name="description" content="DISPATCH_QUEUE_SERIAL 可以用来做读写同步
+
+我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="单一资源的多读单写">
+<meta property="og:url" content="https://fengcheDWJ.github.io/2015/08/05/单一资源的多读单写/index.html">
+<meta property="og:site_name" content="fengche">
+<meta property="og:description" content="DISPATCH_QUEUE_SERIAL 可以用来做读写同步
+
+我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它">
+<meta property="og:updated_time" content="2015-08-05T02:21:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="单一资源的多读单写">
+<meta name="twitter:description" content="DISPATCH_QUEUE_SERIAL 可以用来做读写同步
+
+我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它">
+  
+    <link rel="alternate" href="/atom.xml" title="fengche" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">fengche</a></h1>
+    <p><a href="/">ios swift c cpp java node js</a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2015/08/05/单一资源的多读单写/">
+  <time datetime="2015-08-05T02:03:38.000Z">
+    2015-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">单一资源的多读单写</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>DISPATCH_QUEUE_SERIAL 可以用来做读写同步</p>
+<blockquote>
+<p>我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它后面的 block 运行之前。<br>以如下方式创建队列：</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span><span class="variable">.isolationQueue</span> = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>并且用以下代码来改变setter函数：</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setCount:(<span class="built_in">NSUInteger</span>)count forKey:(<span class="built_in">NSString</span> *)key &#123; key = [key <span class="keyword">copy</span>];       </span><br><span class="line">dispatch_barrier_async(<span class="keyword">self</span><span class="variable">.isolationQueue</span>, ^()&#123; <span class="keyword">if</span> (count == <span class="number">0</span>) &#123; [<span class="keyword">self</span><span class="variable">.counts</span> removeObjectForKey:key]; &#125; <span class="keyword">else</span> &#123; <span class="keyword">self</span><span class="variable">.counts</span>[key] = @(count); &#125; &#125;); &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当使用并发队列时，要确保所有的 barrier 调用都是 async 的。如果你使用 dispatch_barrier_sync ，那么你很可能会使你自己（更确切的说是，你的代码）产生死锁。写操作需要 barrier，并且可以是 async 的。</p>
+</blockquote>
+
+    
+  </div>
+  <footer>
+    
+      
+  <div class="categories">
+    <a class="categories-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+      
+  <div class="tags">
+    <a class="tags-link" href="/tags/iOS-多线程/">iOS 多线程</a>
+  </div>
+
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2015 <a href="/">fengche</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
