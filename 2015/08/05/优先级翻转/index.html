@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>单一资源的多读单写 | fengche</title>
+  <title>优先级翻转 | fengche</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DISPATCH_QUEUE_SERIAL 可以用来做读写同步
-
-我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它">
+  <meta name="description" content="优先级反转是指程序在运行时低优先级的任务阻塞了高优先级的任务，有效的反转了任务的优先级。由于 GCD 提供了拥有不同优先级的后台队列，甚至包括一个 I/O 队列，所以我们最好了解一下优先级反转的可能性。
+高优先级和低优先级的任务之间共享资源时，就可能发生优先级反转。当低优先级的任务获得了共享资源的锁时，该任务应该迅速完成，并释放掉锁，这样高优先级的任务就可以在没有明显延时的情况下继续执行。然而高优">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单一资源的多读单写">
-<meta property="og:url" content="https://fengcheDWJ.github.io/2015/08/05/单一资源的多读单写/index.html">
+<meta property="og:title" content="优先级翻转">
+<meta property="og:url" content="https://fengcheDWJ.github.io/2015/08/05/优先级翻转/index.html">
 <meta property="og:site_name" content="fengche">
-<meta property="og:description" content="DISPATCH_QUEUE_SERIAL 可以用来做读写同步
-
-我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它">
-<meta property="og:updated_time" content="2015-08-05T07:14:54.000Z">
+<meta property="og:description" content="优先级反转是指程序在运行时低优先级的任务阻塞了高优先级的任务，有效的反转了任务的优先级。由于 GCD 提供了拥有不同优先级的后台队列，甚至包括一个 I/O 队列，所以我们最好了解一下优先级反转的可能性。
+高优先级和低优先级的任务之间共享资源时，就可能发生优先级反转。当低优先级的任务获得了共享资源的锁时，该任务应该迅速完成，并释放掉锁，这样高优先级的任务就可以在没有明显延时的情况下继续执行。然而高优">
+<meta property="og:updated_time" content="2015-08-05T08:30:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单一资源的多读单写">
-<meta name="twitter:description" content="DISPATCH_QUEUE_SERIAL 可以用来做读写同步
-
-我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它">
+<meta name="twitter:title" content="优先级翻转">
+<meta name="twitter:description" content="优先级反转是指程序在运行时低优先级的任务阻塞了高优先级的任务，有效的反转了任务的优先级。由于 GCD 提供了拥有不同优先级的后台队列，甚至包括一个 I/O 队列，所以我们最好了解一下优先级反转的可能性。
+高优先级和低优先级的任务之间共享资源时，就可能发生优先级反转。当低优先级的任务获得了共享资源的锁时，该任务应该迅速完成，并释放掉锁，这样高优先级的任务就可以在没有明显延时的情况下继续执行。然而高优">
   
   
     <link rel="icon" href="/favicon.png">
@@ -119,11 +116,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-单一资源的多读单写" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-优先级翻转" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/05/单一资源的多读单写/" class="article-date">
-  	<time datetime="2015-08-05T02:03:38.000Z" itemprop="datePublished">2015-08-05</time>
+      <a href="/2015/08/05/优先级翻转/" class="article-date">
+  	<time datetime="2015-08-05T01:57:47.000Z" itemprop="datePublished">2015-08-05</time>
 </a>
     </div>
   
@@ -136,7 +133,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      单一资源的多读单写
+      优先级翻转
     </h1>
   
 
@@ -160,17 +157,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>DISPATCH_QUEUE_SERIAL 可以用来做读写同步</p>
-<blockquote>
-<p>我们能够改善上面的那个例子。GCD 有可以让多线程运行的并发队列。我们能够安全地使用多线程来从 NSMutableDictionary 中读取只要我们不同时修改它。当我们需要改变这个字典时，我们使用 barrier 来分发这个 block。这样的一个 block 的运行时机是，在它之前所有计划好的 block 完成之后，并且在所有它后面的 block 运行之前。<br>以如下方式创建队列：</p>
-</blockquote>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span><span class="variable">.isolationQueue</span> = dispatch_queue_create([label UTF8String], DISPATCH_QUEUE_CONCURRENT);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>并且用以下代码来改变setter函数：</p>
-</blockquote>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setCount:(<span class="built_in">NSUInteger</span>)count forKey:(<span class="built_in">NSString</span> *)key &#123; key = [key <span class="keyword">copy</span>];       </span><br><span class="line">dispatch_barrier_async(<span class="keyword">self</span><span class="variable">.isolationQueue</span>, ^()&#123; <span class="keyword">if</span> (count == <span class="number">0</span>) &#123; [<span class="keyword">self</span><span class="variable">.counts</span> removeObjectForKey:key]; &#125; <span class="keyword">else</span> &#123; <span class="keyword">self</span><span class="variable">.counts</span>[key] = @(count); &#125; &#125;); &#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>当使用并发队列时，要确保所有的 barrier 调用都是 async 的。如果你使用 dispatch_barrier_sync ，那么你很可能会使你自己（更确切的说是，你的代码）产生死锁。写操作需要 barrier，并且可以是 async 的。</p>
+        <blockquote>
+<p>优先级反转是指程序在运行时低优先级的任务阻塞了高优先级的任务，有效的反转了任务的优先级。由于 GCD 提供了拥有不同优先级的后台队列，甚至包括一个 I/O 队列，所以我们最好了解一下优先级反转的可能性。</p>
+<p>高优先级和低优先级的任务之间共享资源时，就可能发生优先级反转。当低优先级的任务获得了共享资源的锁时，该任务应该迅速完成，并释放掉锁，这样高优先级的任务就可以在没有明显延时的情况下继续执行。然而高优先级任务会在低优先级的任务持有锁的期间被阻塞。如果这时候有一个中优先级的任务(该任务不需要那个共享资源)，那么它就有可能会抢占低优先级任务而被执行，因为此时高优先级任务是被阻塞的，所以中优先级任务是目前所有可运行任务中优先级最高的。此时，中优先级任务就会阻塞着低优先级任务，导致低优先级任务不能释放掉锁，这也就会引起高优先级任务一直在等待锁的释放。</p>
 </blockquote>
 
       
@@ -181,18 +170,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/08/05/GCD的同步/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/05/单一资源的多读单写/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          GCD的同步
+          单一资源的多读单写
         
       </div>
     </a>
   
   
-    <a href="/2015/08/05/优先级翻转/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">优先级翻转</div>
+    <a href="/2015/08/05/工程的思考/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">工程的思考</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
