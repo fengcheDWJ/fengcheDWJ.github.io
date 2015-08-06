@@ -114,6 +114,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-sleep" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/05/sleep/" class="article-date">
+  	<time datetime="2015-08-05T02:05:32.000Z" itemprop="datePublished">2015-08-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/05/sleep/">sleep</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>两个函数都是休眠当前线程，GCD,NSThread，NSOperation都适用</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-GCD的同步" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -350,6 +410,8 @@
 <li>文件夹分类（包括代码,资源的归类）</li>
 <li>第三方库的管理(CocoaPods)</li>
 <li>类的命名 继承 与 重用</li>
+<li>用Category把太长的代码按功能拆开</li>
+<li>用Category结合Method Swizzling实现无污染</li>
 </ol>
 
       
