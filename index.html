@@ -164,122 +164,6 @@
 
 
   
-    <article id="post-循环引用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/05/循环引用/" class="article-date">
-  	<time datetime="2015-08-05T06:08:08.000Z" itemprop="datePublished">2015-08-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/05/循环引用/">循环引用</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="留着待写">留着待写</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内存/">内存</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-响应链" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/05/响应链/" class="article-date">
-  	<time datetime="2015-08-05T06:07:01.000Z" itemprop="datePublished">2015-08-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/05/响应链/">响应链</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="留着待写">留着待写</h1>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/iOS/">iOS</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
     <article id="post-drawRect" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -679,6 +563,136 @@
       
         <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSOperationQueue</span> mainQueue]<span class="variable">.maxConcurrentOperationCount</span> = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"max cocurrent count = %d"</span> , (<span class="keyword">int</span>)[<span class="built_in">NSOperationQueue</span> mainQueue]<span class="variable">.maxConcurrentOperationCount</span>);</span><br></pre></td></tr></table></figure>
 <p><strong>结论:</strong><code>[NSOperationQueue mainQueue]</code>最大并发数为1 ，修改无效。顺便提一下，<code>[[NSOperation new] start]</code>方法会阻塞当前线程，要异步就要加入NSOperationQueue。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-sleep" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/05/sleep/" class="article-date">
+  	<time datetime="2015-08-05T02:05:32.000Z" itemprop="datePublished">2015-08-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/05/sleep/">sleep</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>两个函数都是休眠当前线程，GCD,NSThread，NSOperation都适用</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/iOS/">iOS</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-GCD的同步" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/05/GCD的同步/" class="article-date">
+  	<time datetime="2015-08-05T02:05:10.000Z" itemprop="datePublished">2015-08-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/05/GCD的同步/">GCD的同步</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)testQueue&#123;</span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queueA = dispatch_queue_create(<span class="string">"queueA"</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">dispatch_sync</span>(queueA, ^&#123;</span><br><span class="line">        <span class="built_in">dispatch_sync</span>(queueA, ^&#123;</span><br><span class="line">            <span class="comment">//1</span></span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"hello0"</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//2</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"hello1"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">//3</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"hello2"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>死锁分析</strong>: 因为同步2处的代码要等待1执行完才能执行 ，但是1的代码是插在queueA的最后面，要等queueA前面的代码（也就是2）执行完才能执行。所以互相等待，形成死锁。这里死锁不执行了，因为同步3在等待上面的block执行完，所以3的代码也不执行了。</p>
+<hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"1"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"2"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"3"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"4"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"5"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>result</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">49.802</span> UITest[<span class="number">1190</span>:<span class="number">45385</span>] <span class="number">2</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">49.802</span> UITest[<span class="number">1190</span>:<span class="number">45382</span>] <span class="number">1</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">49.803</span> UITest[<span class="number">1190</span>:<span class="number">45385</span>] <span class="number">3</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">49.803</span> UITest[<span class="number">1190</span>:<span class="number">45383</span>] <span class="number">4</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">44</span>:<span class="number">49.803</span> UITest[<span class="number">1190</span>:<span class="number">45382</span>] <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>多个dispatch_barrier_async不能保持先后执行</p>
+<hr>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"1"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"2"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"3"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"4"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">dispatch_barrier_async(queue, ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"5"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>result</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">57</span>:<span class="number">19.906</span> UITest[<span class="number">1285</span>:<span class="number">50878</span>] <span class="number">2</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">57</span>:<span class="number">19.906</span> UITest[<span class="number">1285</span>:<span class="number">50880</span>] <span class="number">1</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">57</span>:<span class="number">19.906</span> UITest[<span class="number">1285</span>:<span class="number">50878</span>] <span class="number">3</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">57</span>:<span class="number">19.906</span> UITest[<span class="number">1285</span>:<span class="number">50879</span>] <span class="number">4</span></span><br><span class="line"><span class="number">2015</span>-<span class="number">08</span>-<span class="number">05</span> <span class="number">10</span>:<span class="number">57</span>:<span class="number">19.907</span> UITest[<span class="number">1285</span>:<span class="number">50880</span>] <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p><strong>结论:</strong>本来应该按道理 2必须在1后的，看样子是只有最后一个 dispatch_barrier_async才生效</p>
 
       
     </div>
